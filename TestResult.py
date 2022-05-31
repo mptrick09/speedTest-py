@@ -1,7 +1,8 @@
+import speedtest
 class TestResult:
-    def __init__(self, download, upload, timestamp):
-        self.download = download
-        self.upload = upload
+    def __init__(self, timestamp):
+        self.download = 0
+        self.upload = 0
         self.timestand = timestamp
         
     def __str__(self):
@@ -10,9 +11,16 @@ class TestResult:
     def convertToMBits(self, bits):
         Megabits = bits / 1048576  
         return round(Megabits, 4)
-    
-    def getDownloadinMbits(self, download):
-        return self.download
+    def setDownload(self):
+        s = speedtest.Speedtest()
+        self.download = s.download()
         
-    def getUploadinMbits(self, upload):
-        return self.updoad 
+    def getDownloadinMbits(self):
+        return self.download
+    
+    def setUpload(self):
+        s = speedtest.Speedtest()
+        self.upload = s.upload()
+        
+    def getUploadinMbits(self):
+        return self.updoad
