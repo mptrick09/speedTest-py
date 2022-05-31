@@ -1,0 +1,11 @@
+class TestAnalyser:
+    def __init__(self, resultFrame):
+      self.dresultFrame = resultFrame
+       
+
+    def writeReport(self):
+        pass
+
+
+    def plotResutt(self):
+        pass
